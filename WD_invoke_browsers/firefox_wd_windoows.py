@@ -10,7 +10,7 @@ from webdriver_manager.opera import OperaDriverManager
 
 
 class FFTests():
-    def create_wd(self, browser):
+    def create_wd(self, browser='chrome'):
         browser = browser.lower()
         if browser == "firefox":
             driver = webdriver.Firefox(service=Service(executable_path=GeckoDriverManager().install()))
