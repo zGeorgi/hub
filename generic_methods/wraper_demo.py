@@ -2,8 +2,10 @@ from selenium import webdriver
 
 import time
 
-from WD_invoke_browsers.firefox_wd_windoows import FFTests
-from generic_methods.methods import HandyWrappers
+from selenium.webdriver.common.by import By
+
+from hub.WD_invoke_browsers.firefox_wd_windoows import FFTests
+from hub.generic_methods.methods import HandyWrappers
 
 
 class UsingWrappers1():
@@ -11,17 +13,16 @@ class UsingWrappers1():
     def test(self):
         baseUrl = "https://courses.letskodeit.com/practice"
         wd = FFTests()
-        driver = wd.create_wd("firefox")
-        driver.maximize_window()
+        driver = wd.create_wd("chrome")
         driver.implicitly_wait(10)
-        hw = HandyWrappers(driver)
         driver.get(baseUrl)
+        driver.switch_to.frame("courses-iframe")
+        element = driver.find_element(By.ID, "search")
+        print(element)
 
-        textField1 = hw.getElement("name")
-        textField1.send_keys("Test")
-        time.sleep(2)
-        textField2 = hw.getElement("//input[@id='name']", locatorType="xpath")
-        textField2.clear()
+        element.send_keys("Java")
+        time.sleep(3)
+
 
 ff = UsingWrappers1()
 ff.test()
