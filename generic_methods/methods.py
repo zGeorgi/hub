@@ -101,22 +101,22 @@ class HandyWrappers:
 
 
 
-def waitForElement(self, locator, locatorType="id",
-                   timeout=10, pollFrequency=0.5):
-    element = None
-    try:
-        self.driver.implicitly_wait(0)
-        byType = self.getByType(locatorType)
-        print("Waiting for maximum :: " + str(timeout) +
-              " :: seconds for element to be visible")
-        wait = WebDriverWait(self.driver, timeout=timeout, poll_frequency=pollFrequency,
-                             ignored_exceptions=[NoSuchElementException,
-                                                 ElementNotVisibleException,
-                                                 ElementNotSelectableException])
-        element = wait.until(EC.visibility_of_element_located((byType, locator)))
-        print("Element appeared on the web page")
-    except:
-        print("Element not appeared on the web page")
-        print_stack()
-    self.driver.implicitly_wait(2)
-    return element
+    def waitForElement(self, locator, locatorType="id",
+                       timeout=10, pollFrequency=0.5):
+        element = None
+        try:
+            self.driver.implicitly_wait(0)
+            byType = self.getByType(locatorType)
+            print("Waiting for maximum :: " + str(timeout) +
+                  " :: seconds for element to be visible")
+            wait = WebDriverWait(self.driver, timeout=timeout, poll_frequency=pollFrequency,
+                                 ignored_exceptions=[NoSuchElementException,
+                                                     ElementNotVisibleException,
+                                                     ElementNotSelectableException])
+            element = wait.until(EC.visibility_of_element_located((byType, locator)))
+            print("Element appeared on the web page")
+        except:
+            print("Element not appeared on the web page")
+            print_stack()
+        self.driver.implicitly_wait(2)
+        return element
