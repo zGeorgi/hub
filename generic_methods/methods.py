@@ -1,11 +1,11 @@
-<<<<<<< HEAD
+
 from traceback import print_stack
 
 from selenium.common.exceptions import NoSuchElementException, ElementNotSelectableException, ElementNotVisibleException
-=======
+
 from datetime import time
 
->>>>>>> f0a5443fc54a57970a74499f64fc36d7a2b2d77c
+
 from selenium.webdriver.common.by import By
 from selenium.webdriver.support.wait import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
@@ -46,9 +46,7 @@ class HandyWrappers:
             print("Element not found")
         return element
 
-<<<<<<< HEAD
 
-=======
     def element_presence_check(self, locator, byType):
         try:
             elementList = self.driver.find_elements(byType, locator)
@@ -100,7 +98,7 @@ class HandyWrappers:
             print("Screenshot saved to directory --> :: " + destinationFile)
         except NotADirectoryError:
             print("Not a directory issue")
->>>>>>> f0a5443fc54a57970a74499f64fc36d7a2b2d77c
+
 
 
 def waitForElement(self, locator, locatorType="id",
