@@ -15,6 +15,11 @@ class JavaScriptExecution():
         # element = driver.find_element(By.ID, "name")
         element = driver.execute_script("return document.getElementById('name');")
         element.send_keys("Test")
+# windows size with java script
+        height = driver.execute_script("return window.innerHeight;")
+        width = driver.execute_script("return window.innerWidth;")
+        print("Height: " + str(height))
+        print("Width: " + str(width))
 
 ff = JavaScriptExecution()
 ff.test()
